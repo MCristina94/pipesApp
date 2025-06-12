@@ -21,6 +21,6 @@ export class LocaleService {
   changeLocale(locale: AvailableLocale) {
     localStorage.setItem('locale', locale);
     this.currentLocale.set(locale);
-    window.location.reload(); //recarga el navegador
+    window.location.reload(); //recarga el navegador //NOTA: si no quiero recargar, puedo usar ngx-translate
   }
 }
