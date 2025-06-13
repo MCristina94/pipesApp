@@ -44,9 +44,32 @@
       <tr>
         <td>{{ i + 1 }}</td>
         <td>{{ hero.name }}</td>
-        <td>{{ hero.canFly }}</td>
-        <td>{{ hero.color }}</td>
-        <td>{{ hero.creator }}</td>
+        <td>
+          <span
+            class="text-xs w-44"
+            [class.text-success]="hero.canFly"
+            [class.text-accent]="!hero.canFly"
+          >
+            {{ hero.canFly | canFly }}
+            <!-- puede volar o no puede volar -->
+          </span>
+        </td>
+        <td>
+          <span class="text-xs w-44" [style.color]="hero.color | heroTextColor">
+            {{ hero.color | heroColor | titlecase }}
+            <!-- red, blue, green, etc -->
+          </span>
+        </td>
+
+        <td>
+          <span
+            [class.text-primary]="hero.creator === 0"
+            [class.text-accent]="hero.creator === 1"
+          >
+            {{ hero.creator | heroCreator }}</span
+          >
+        </td>
+        <!-- 0 es DC - 1 es Marvel -->
       </tr>
       }
     </tbody>
